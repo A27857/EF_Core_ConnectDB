@@ -29,6 +29,7 @@ namespace EF_Core_1v7v21.Models
         public List<Student> EditStudent(Student student)
         {
             _student.Update(student);
+            _student.SaveChanges();
             //_student.Entry(student).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             return GetStudents();
         }

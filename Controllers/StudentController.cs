@@ -6,40 +6,40 @@ namespace EF_Core_1v7v21.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class StudentsController : ControllerBase
+    public class StudentController : ControllerBase
     {
         private IStudentServices _students;
-        public StudentsController(IStudentServices student)
+        public StudentController(IStudentServices student)
         {
             _students = student;
         }
 
-        [HttpGet("StudentList")]
+        [HttpGet("listStudent")]
         public List<Student> GetStudents()
         {
             var list = _students.GetStudents();
             return list;
         }
 
-        [HttpGet("student/{id}")]
+        [HttpGet("{id}")]
         public Student GetStudent(int id)
         {
             return _students.GetStudent(id);
         }
 
-        [HttpPost("student")]
+        [HttpPost]
         public List<Student> CreateStudent(Student student)
         {
             return _students.CreateStudent(student);
         }
 
-        [HttpPut("student")]
+        [HttpPut]
         public List<Student> EditStudent(Student student)
         {
             return _students.EditStudent(student);
         }
 
-        [HttpDelete("student/{id}")]
+        [HttpDelete("{id}")]
         public List<Student> Delete(int id)
         {
             return _students.Delete(id);
